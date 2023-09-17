@@ -137,7 +137,7 @@ export type TableProps = {
  * @see {@link https://element-plus.org/zh-CN/component/table.html#table-%E5%B1%9E%E6%80%A7}
  */
 export interface PureTableProps extends TableProps {
-  /** 唯一键，如果单个页面有多个表格实例，但是您只获取到一个表格实例，设置 `key` 即可解决，不过大多数情况下不需要设置，会自动处理 */
+  /** 唯一键，如果单个页面有多个表格实例，但是您只获取到一个表格实例，设置 `key` 即可解决（ref={`TableRef${unref(key)}`}），不过大多数情况下不需要设置，会自动处理 */
   key?: String | Number;
   /** `Table-column` 配置 `该属性为必填属性` */
   columns: Array<TableColumns>;

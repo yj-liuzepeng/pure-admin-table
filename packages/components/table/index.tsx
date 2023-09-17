@@ -36,6 +36,7 @@ export default defineComponent({
 
     const { isDark } = useDark();
     const instance = getCurrentInstance()!;
+    // 是否展示分页组件
     let conditions =
       unref(pagination) &&
       unref(pagination).currentPage &&
@@ -263,9 +264,9 @@ export default defineComponent({
         <>
           <ElTable {...props} {...attrs} ref={`TableRef${unref(key)}`}>
             {{
-              default: () => unref(columns).map(renderColumns),
-              append: () => slots.append && slots.append(),
-              empty: () => slots.empty && slots.empty()
+              default: () => unref(columns).map(renderColumns), // ElTableColumn
+              append: () => slots.append && slots.append(), // 插入至表格最后一行之后的内容
+              empty: () => slots.empty && slots.empty() // 当数据为空时自定义的内容
             }}
           </ElTable>
           {conditions ? (
